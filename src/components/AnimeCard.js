@@ -6,7 +6,7 @@ import { GlobalContext } from '../context/GlobalState';
 const AnimeCard = ({anime}) => {
 
   const CardContainer = styled.div`
-    background-color: rgba(250, 250, 250, 0.05);
+    background-color: rgba(242, 242, 242, 0.05);
     width: 14rem;
     height: 20rem;
     display: flex;
@@ -97,27 +97,6 @@ const AnimeCard = ({anime}) => {
     const collectionsDisabled = storedAnime ? true : false;
     
   return (
-    
-        // <div>
-        //   <Link to={`/anime-detail/${anime.id}`}>
-        //     <CardContainer>
-        //       <TextContainer>
-        //         <h4>
-        //           {anime.title.native}
-        //         </h4>
-        //       </TextContainer>
-        //     </CardContainer> 
-        //   </Link>
-        //     <ButtonContainer>
-        //       <Button 
-        //       onClick={() => addAnimeToCollections(anime)}
-        //       disabled={collectionsDisabled}>
-        //         Tambah
-        //       </Button>
-        //     </ButtonContainer>
-        // </div>
-
-        /* <Image src={anime.coverImage.large} /> */
 
       <CardContainer>
         <NavLink to={`/anime-detail/${anime.id}`}>

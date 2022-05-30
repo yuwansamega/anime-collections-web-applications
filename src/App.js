@@ -7,6 +7,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import AnimeDetail from './pages/AnimeDetail';
 import { GlobalProvider } from './context/GlobalState';
 import AnimeCollections from './pages/AnimeCollections';
+import Footer from './components/Footer';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
               <Route path='/anime-detail/:id' element={<AnimeDetail />} />
               <Route path='/anime-collections' element={<AnimeCollections />} />
             </Routes>
+          <Footer />
         </Router>
       </ApolloProvider>
     </GlobalProvider>

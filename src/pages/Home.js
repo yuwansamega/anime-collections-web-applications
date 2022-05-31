@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
 import AnimeCard from '../components/AnimeCard';
 import { useAnime } from '../hooks/useAnime';
 import GridLoader from "react-spinners/GridLoader";
-
 
 
 const Home = () => {
@@ -12,7 +11,6 @@ const Home = () => {
     height: fit-content;
     min-height: 70rem;
     width: 100%;
-    background-color: #121212;
     display: flex;
     justify-content: center;
   `;
@@ -34,7 +32,6 @@ const Home = () => {
     justify-content: center;
     gap: 1rem;
     margin-top: 3rem;
-
   `
 
   const TextContainer = styled.div`
@@ -91,6 +88,11 @@ const Home = () => {
       cursor: default;
       opacity: 38%;
     }
+    &:focus{
+      color: #f0abfc;
+      border-color: #f0abfc;
+      border: 2px solid;
+    }
   `;
 
   const LoadingContainer = styled.div`
@@ -104,8 +106,6 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const  {data, loading, error} = useAnime(currentPage, 10);
-
-  console.log(data);
     
   const handleNextButton = () => {
     setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
@@ -116,15 +116,14 @@ const Home = () => {
 
   const previousButtonDisabled = currentPage == 1 ? true : false;
 
-
   return (
     <Wrapper>
       <WrapperContainer>
-        <TextContainer>
-          <Text>
-            Choose You Anime Collections!
-          </Text>
-        </TextContainer>
+          <TextContainer>
+            <Text>
+              Choose Your Anime Collections!
+            </Text>
+          </TextContainer>
 
         {loading ? 
           <LoadingContainer>
@@ -135,7 +134,7 @@ const Home = () => {
         <ContentContainer>
           {data && data.Page.media.map(anime => {
             return (
-              <AnimeCard key={anime.id} anime={anime} />
+                <AnimeCard key={anime.id} anime={anime} />
             )
           })}
         </ContentContainer>
@@ -158,16 +157,6 @@ const Home = () => {
             </ButtonContainer>
           </>) : <div></div>}
         </PaginateContainer>
-
-        {/* <PaginateWrapper>
-          <ButtonContainer>
-            <Button onClick={handlePreviousButton}
-              disabled={previousButtonDisabled}>
-                Previous
-            </Button>
-            <Button onClick={handleNextButton}>Next</Button>
-          </ButtonContainer>
-        </PaginateWrapper> */}
       </WrapperContainer>
     </Wrapper>
   )

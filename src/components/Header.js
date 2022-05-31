@@ -22,25 +22,7 @@ const Header = () => {
     
   `
 
-  const BrandName = styled.div`
-    color: #F2F2F2;
-    font-weight: 500;
-    font-family: 'Press Start 2P', cursive;
-    &:hover {
-      color: #f0abfc;
-    }
-  `
-
-  const NavItem = styled.div`
-    color: #F2F2F2;
-    font-size: 1.25rem; 
-    font-family: 'VT323', monospace;
-    &:hover {
-      color: #f0abfc;
-    }
-  `
-
-  const StyledLink = styled(NavLink)`
+  const StyledNavLink = styled(NavLink)`
     color: #F2F2F2;
     font-size: 1.25rem; 
     font-family: 'VT323', monospace;
@@ -52,16 +34,28 @@ const Header = () => {
     }
   `;
 
+  const StyledBrandLink = styled(NavLink)`
+  color: #F2F2F2;
+  font-weight: 500;
+  font-family: 'Press Start 2P', cursive;
+  &:hover {
+    color: #f0abfc;
+  }
+  &.active{
+    color: #f0abfc;
+  }
+  `
+
   return (
     
     <Wrapper>
       <WrapperContainer>
-        <Link to='/'>
-          <BrandName>Animoo</BrandName>
-        </Link>
-        <StyledLink to={`/anime-collections`}>
-            Collections
-        </StyledLink>
+        <StyledBrandLink to='/'>
+          Animoo
+        </StyledBrandLink>
+        <StyledNavLink to={`/anime-collections`}>
+          Collections
+        </StyledNavLink>
       </WrapperContainer>
     </Wrapper>
   )

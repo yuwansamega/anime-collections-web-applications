@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalState';
+import 'animate.css';
+import Swal from 'sweetalert2'
 
 const AnimeCard = ({anime}) => {
 
@@ -15,6 +17,8 @@ const AnimeCard = ({anime}) => {
     flex-direction: column;
     position: relative;
     
+    animation: fadeIn; 
+    animation-duration: 800ms;
   `;
 
   const TextContainer = styled.div`
@@ -45,7 +49,7 @@ const AnimeCard = ({anime}) => {
     width: 100%;
     height: 17rem;
     opacity: 0.9;
-  `
+  `;
 
   const ButtonContainer = styled.div`
     width: 80%;
@@ -69,13 +73,13 @@ const AnimeCard = ({anime}) => {
     border: 1px solid;
     border-color: rgb(25, 191, 111);
     &:hover {
-      color: #fafafa;
+      color: #f2f2f2;
       background-color: rgb(25, 191, 111);
       border: none;
       cursor: pointer;
     }
     &:disabled {
-      color: #fafafa;
+      color: #f2f2f2;
       opacity: 38%;
       background-color: rgba(18,18,18, 0.3);
       color: rgb(25, 191, 111);
@@ -90,11 +94,26 @@ const AnimeCard = ({anime}) => {
     height: 100%;
   `;
 
+  const Toast = () => {
+    Swal.fire({
+      toast: true,
+      color: '#f2f2f2',
+      background: '#1d1d1d',
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1200,
+      icon: 'success',
+      iconColor: '#f0abfc',
+      titleText: 'Success added to collections!'
+    });
+  }
+
     const { addAnimeToCollections, collections } = useContext(GlobalContext);
     
     let storedAnime = collections.find(o => o.id === anime.id);
 
     const collectionsDisabled = storedAnime ? true : false;
+    
     
   return (
 
@@ -106,12 +125,14 @@ const AnimeCard = ({anime}) => {
             </Text>
           </TextContainer>
           <ContentContainer>
-            <Image src={anime.coverImage.large} />
+            <Image src={anime.coverImage.large} alt={anime.title.native} />
           </ContentContainer>
         </NavLink>
         <ButtonContainer>
           <Button 
-          onClick={() => addAnimeToCollections(anime)}
+          onClick={() => {
+            addAnimeToCollections(anime);
+            Toast();}}
           disabled={collectionsDisabled}>
             Collect
           </Button>

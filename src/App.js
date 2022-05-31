@@ -8,6 +8,7 @@ import AnimeDetail from './pages/AnimeDetail';
 import { GlobalProvider } from './context/GlobalState';
 import AnimeCollections from './pages/AnimeCollections';
 import Footer from './components/Footer';
+import NotFound from './pages/NotFound';
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
               <Route path='/' element={<Home />} />
               <Route path='/anime-detail/:id' element={<AnimeDetail />} />
               <Route path='/anime-collections' element={<AnimeCollections />} />
+              <Route path='*' element={<NotFound />} />
             </Routes>
           <Footer />
         </Router>

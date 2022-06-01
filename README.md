@@ -20,13 +20,9 @@ Anime collections. Tokopedia technical test project assignment.
 - Mobile First and Single Page Application(SPA)
 - Persisted collection data using Local Web Storage.
 - Anime list
-- Anime detail info
-- Add to the collection
-- Collection info
-- Collection list info
-- Remove Collection
-- Add Collection
-- Collection detail info
+- Anime detail information
+- Add anime to collection
+- Anime collection list
 - Remove anime from collection
 
 ## Author Message

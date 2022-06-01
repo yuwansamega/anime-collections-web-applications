@@ -14,11 +14,17 @@ const AnimeDetail = () => {
   `
 
   const WrapperContainer = styled.div`
-    width: 80%;
+    width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media only screen and (min-width: 768px){
+      width: 80%;
+    }
+
+    
   `;
 
   const TextContainer = styled.div`

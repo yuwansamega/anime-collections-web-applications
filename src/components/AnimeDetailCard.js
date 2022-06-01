@@ -7,7 +7,7 @@ import 'animate.css';
 const AnimeDetailCard = () => {
 
   const CardWrapper = styled.div`
-    width: 80%;
+    width: 100%;
     height: fit-content;
     background-color: rgba(242, 242, 242, 0.05);
     border-radius: 0.25rem;
@@ -16,6 +16,10 @@ const AnimeDetailCard = () => {
     padding-bottom: 2rem;
     animation: fadeInUp; 
     animation-duration: 1s;
+
+    @media only screen and (min-width: 768px){
+      width: 80%;
+    }
   `;
 
   const CardContainer = styled.div`
